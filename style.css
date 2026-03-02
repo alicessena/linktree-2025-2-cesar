@@ -232,6 +232,7 @@ button:hover i {
   background-color: #fff3cd !important;
   border: 2px solid #ffc107;
   font-weight: bold;
+  color: #000;
 }
 
 th.dia-atual {
@@ -301,8 +302,8 @@ th.dia-atual {
 .dias span,
 .dias a {
   text-align: center;
-  padding: 8px 0;
-  border-radius: 8px;
+  padding: 5px 5px;
+  border-radius: 25px;
   font-size: 0.8rem;
   transition: 0.2s ease;
 }
@@ -382,4 +383,54 @@ html {
   .eventos-container {
     padding: 18px;
   }
+}
+
+.footer {
+  margin-top: 2rem;
+  padding: 1rem ;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-info h3 {
+  color: var(--primary-orange);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.footer-info p {
+  font-weight: 900;
+  margin-bottom: 0.25rem;
+}
+
+.footer-info span {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.footer-social {
+  margin-top: 0.25rem;
+}
+
+.footer-social a {
+  font-size: 1.8rem;
+  margin: 0 15px;
+  color: var(--text-white);
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--primary-orange);
+  transform: scale(1.2);
+}
+
+.footer-copy {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
 }
