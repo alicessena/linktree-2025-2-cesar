@@ -1,42 +1,31 @@
+
 document.addEventListener("DOMContentLoaded", function () {
   const hoje = new Date().getDay();
-  // 0 = Domingo
-  // 1 = Segunda
-  // 2 = Terça
-  // 3 = Quarta
-  // 4 = Quinta
-  // 5 = Sexta
-  // 6 = Sábado
+  if (hoje === 0) return; 
+
+  const dias = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+  const nomeDia = dias[hoje];
 
   const tabela = document.getElementById("tabela-horario");
-  const linhas = tabela.rows;
+  const ths = tabela.querySelectorAll("thead th");
 
-  // Índice das colunas:
-  // 0 = Turno
-  // 1 = Horário
-  // 2 = Segunda
-  // 3 = Terça
-  // 4 = Quarta
-  // 5 = Quinta
-  // 6 = Sexta
-  // 7 = Sábado
+  let indiceColuna = -1;
 
-  const mapaDias = {
-    1: 2, // Segunda
-    2: 3, // Terça
-    3: 4, // Quarta
-    4: 5, // Quinta
-    5: 6, // Sexta
-    6: 7  // Sábado
-  };
 
-  const colunaAtual = mapaDias[hoje];
-
-  if (colunaAtual !== undefined) {
-    for (let i = 0; i < linhas.length; i++) {
-      if (linhas[i].cells[colunaAtual]) {
-        linhas[i].cells[colunaAtual].classList.add("dia-atual");
-      }
+  ths.forEach((th, index) => {
+    if (th.textContent.trim() === nomeDia) {
+      indiceColuna = index;
     }
-  }
+  });
+
+  if (indiceColuna === -1) return;
+
+  ths[indiceColuna].classList.add("dia-atual");
+
+  tabela.querySelectorAll("tbody tr").forEach(tr => {
+    const celula = tr.children[indiceColuna];
+    if (celula) {
+      celula.classList.add("dia-atual");
+    }
+  });
 });
